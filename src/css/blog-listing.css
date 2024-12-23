@@ -1,0 +1,37 @@
+.listing-container{
+    padding: 40px 20px;
+}
+
+.listing-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.left-section{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.listing-search-input{
+    width: 300px;
+    padding: 20px 0px;
+}
+
+.listing-tabs{
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
