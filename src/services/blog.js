@@ -144,3 +144,42 @@ export const getBlogsCount = async () => {
   }
 };
   
+
+export const getBlogComments = async (blogId) => {
+  try {
+      // Construct the endpoint to fetch comments for a specific blog post
+      const endpoint = `${API_URL}blogs/blogs/${blogId}/comments/`;
+
+      // Fetch the data from the API
+      const response = await api.get(endpoint);
+
+      // Return the response data
+      return response.data;
+  } catch (error) {
+      console.error('Error fetching blog comments:', error);
+      throw error.response?.data || new Error('Fetching blog comments failed');
+  }
+};
+
+
+export const postBlogComment = async (blogId, content) => {
+  try {
+      // Prepare the data to be sent in the request
+      const data = {
+          content: content,
+      };
+
+      // Construct the endpoint to post a comment for a specific blog post
+      const endpoint = `${API_URL}blogs/blogs/${blogId}/comments/`;
+
+      // Send the request to create a new comment
+      const response = await api.post(endpoint, data);
+
+      // Return the response data
+      return response.data;
+  } catch (error) {
+      console.error('Error posting comment on blog:', error);
+      throw error.response?.data || new Error('Posting comment failed');
+  }
+};
+

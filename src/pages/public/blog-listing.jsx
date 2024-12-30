@@ -235,8 +235,8 @@ export default function BlogListing() {
       }}
       validationSchema={createBlogValidationSchema}
       onSubmit={(values) => {
-        console.log("Submitted values:", values);
-        // Handle form submission logic here
+        console.log('Submitted values:', values);
+        editBlogMutation(values); // Trigger the mutation to edit the blog
       }}
     >
       {({ touched, errors, setFieldValue }) => (

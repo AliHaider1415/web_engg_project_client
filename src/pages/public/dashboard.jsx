@@ -8,7 +8,7 @@ import ProductCard from '../../components/product-card';
 import useUserStore from '../../store/user-store';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 import { getUserProductList, getGuestProductList } from '../../services/product';
-import { getUserBlogList, getGuestBlogList, getBlogDetail, deleteBlog } from '../../services/blog';
+import { getUserBlogList, getGuestBlogList, getBlogDetail, deleteBlog, editBlog } from '../../services/blog';
 import { addToCart } from '../../services/cart';
 import BlogCard from '../../components/blog-card';
 
@@ -89,6 +89,29 @@ const { data: products, isLoading, error } = useQuery({
           setIsDeleting(false);
         }
       })
+
+
+      const {mutate: editBlogMutation} = useMutation({
+          mutationFn: (values) => editBlog(selectedBlog.id, values),
+          onMutate: () =>{
+            setIsEditing(true);
+          },
+          onSuccess: () => {
+      
+            setIsEditModalVisible(false);
+            message.success("Blog Edited successfully");
+            // Invalidate and refetch the userBlogList query
+            queryClient.invalidateQueries(['userBlogList']);
+          },
+          onError: (error) => {
+      
+            message.error("Failed to edit blog");
+            console.error('Failed to edit blog:', error);
+          },
+          onSettled: () => {
+            setIsEditing(false);
+          }
+        })
 
 
       const { mutate: addToCartMutation, isLoading: isAddingToCart, error: errorAddingToCart } = useMutation({
@@ -293,8 +316,8 @@ const { data: products, isLoading, error } = useQuery({
       }}
       validationSchema={createBlogValidationSchema}
       onSubmit={(values) => {
-        console.log("Submitted values:", values);
-        // Handle form submission logic here
+        console.log('Submitted values:', values);
+        editBlogMutation(values); // Trigger the mutation to edit the blog
       }}
     >
       {({ touched, errors, setFieldValue }) => (

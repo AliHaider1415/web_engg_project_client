@@ -1,23 +1,49 @@
-/* product-card.css */
-
 .product-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #1890ff; /* Ant Design primary color */
-    margin-top: 10px;
-  }
-  
-  .product-ratings {
-    margin-top: 10px;
-  }
-  
-  .add-to-cart-btn {
-    margin-top: 15px;
-  }
-  
-  .ant-card-cover img {
-    height: 250px;
-    object-fit: cover;
-    object-position: top center;
-  }
-  
+  font-size: 18px;
+  font-weight: bold;
+  color: #1890ff; /* Ant Design primary color */
+  margin-top: 10px;
+}
+
+.product-ratings {
+  margin-top: 10px;
+}
+
+.add-to-cart-btn {
+  margin-top: 15px;
+}
+
+.ant-card-cover img {
+  height: 250px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Hover effect for showing "Show Detail" */
+.ant-card:hover .hover-detail {
+  opacity: 1; /* Show the hover effect when the card is hovered */
+}
+
+.hover-detail {
+  position: absolute;
+  top: 0; /* Position it at the top of the card */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.show-detail-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.show-detail-link:hover {
+  text-decoration: underline;
+}

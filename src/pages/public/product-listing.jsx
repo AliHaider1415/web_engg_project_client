@@ -145,13 +145,13 @@ export default function ProductListing() {
             <Option value="alphabet">Sort by Alphabet</Option>
           </Select>
 
-          <Slider
+          {/* <Slider
             range
             step={10}
             defaultValue={priceRange}
             onChange={handlePriceChange}
             style={{ width: 200, marginBottom: 16 }}
-          />
+          /> */}
         </div>
 
         <div className="products-right-section">
