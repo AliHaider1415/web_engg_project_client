@@ -1,0 +1,101 @@
+/* General container styling */
+.product-listing {
+  padding: 20px;
+}
+
+/* Title styling */
+.title {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: bold;
+  color: #1890ff;
+}
+
+/* Custom container for filters and products */
+.custom-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+/* Filters section */
+.filters {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+/* Products section */
+.products-right-section {
+  flex: 3;
+  display: block;
+}
+
+/* Header section in the right container */
+.right-header-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+/* Product grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+  gap: 20px;
+}
+
+@media (max-width: 1707px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+
+  .custom-container {
+    flex-direction: column; /* Stack filters and products vertically */
+  }
+
+  .filters {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+
+  .products-right-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1340px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+  }
+
+  .title {
+    font-size: 28px;
+    text-align: center; /* Center the title */
+  }
+
+  .right-header-section {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 811px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* 1 column for extra small screens */
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .product-card {
+    width: 100%; /* Full width for cards */
+    margin: 0 auto;
+  }
+
+  .filters {
+    margin-bottom: 20px; /* Add spacing below filters */
+  }
+}

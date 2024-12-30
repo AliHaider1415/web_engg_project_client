@@ -1,0 +1,23 @@
+/* product-card.css */
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1890ff; /* Ant Design primary color */
+    margin-top: 10px;
+  }
+  
+  .product-ratings {
+    margin-top: 10px;
+  }
+  
+  .add-to-cart-btn {
+    margin-top: 15px;
+  }
+  
+  .ant-card-cover img {
+    height: 250px;
+    object-fit: cover;
+    object-position: top center;
+  }
+  

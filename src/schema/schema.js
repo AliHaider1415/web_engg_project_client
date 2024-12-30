@@ -70,3 +70,40 @@ export const signupValidationSchema = Yup.object({
       }),
       
   });
+
+  export const createProductValidationSchema = Yup.object({
+    name: Yup.string()
+      .max(255, "Name must be at most 255 characters")
+      .required("Name is required"),
+  
+    description: Yup.string()
+      .required("Description is required"),
+  
+    price: Yup.number()
+      .typeError("Price must be a number")
+      .positive("Price must be greater than 0")
+      .max(99999999.99, "Price must be less than or equal to 99999999.99")
+      .required("Price is required"),
+  
+    stock_quantity: Yup.number()
+      .typeError("Stock quantity must be a number")
+      .integer("Stock quantity must be an integer")
+      .min(0, "Stock quantity must be at least 0")
+      .required("Stock quantity is required"),
+  
+    category: Yup.string()
+      .required("Category is required"),
+  
+    image: Yup.mixed()
+      .nullable()  // Allow image to be null
+      .test("fileSize", "Image size must be less than 5MB", (value) => {
+        return !value || (value && value.size <= 5 * 1024 * 1024);
+      })
+      .test("fileType", "Image must be a valid format (jpeg, png)", (value) => {
+        return (
+          !value ||
+          (value && ["image/jpeg", "image/png"].includes(value.type))
+        );
+      }),
+  });
+  

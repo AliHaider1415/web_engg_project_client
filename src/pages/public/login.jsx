@@ -7,9 +7,12 @@ import {loginValidationSchema} from '../../schema/schema.js';
 import { loginUser } from '../../services/auth.js';
 import useUserStore from '../../store/user-store.js';
 import "../../css/login.css";
+import { useNavigate } from 'react-router-dom';
 
 const { Text, Link } = Typography;
 const Login = () => {
+
+  const navigate = useNavigate();
 
   const { setUser } = useUserStore();
 
@@ -42,6 +45,8 @@ const Login = () => {
         //         navigate('/sales-executive');
         //         break;
         // }
+
+        navigate('/dashboard');
        
         
     },

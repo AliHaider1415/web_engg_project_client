@@ -36,9 +36,16 @@ export default function Header() {
                 <Link className='normal-text' onClick={handleLogOut}>Log Out</Link>
             </div>
             
-            <div className="icon-section">
+            <div
+                className="icon-section"
+                style={{
+                    cursor: 'pointer',
+                    display: 'inline-block',
+                }}
+                onClick={() => navigate('/cart')}
+                >
                 <Badge count={2} offset={[8, 0]} size="small" showZero>
-                    <ShoppingCartOutlined className='normal-icon' />
+                    <ShoppingCartOutlined style={{ fontSize: '24px', color: '#000' }} />
                 </Badge>
             </div>
             

@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
+
 import { Layout, Menu, Button } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { Sider } = Layout;
 
 const CustomSider = ({ items }) => {
+
+  const navigate = useNavigate();
+
+  
   const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1300);
+  const [selectedKey, setSelectedKey] = useState("1")
 
 
   const checkScreenWidth = () => {
@@ -42,6 +49,36 @@ const CustomSider = ({ items }) => {
     setCollapsed(true); // Close the Sider
   };
 
+  const handleMenuClick = ({ key }) => {
+    setSelectedKey(key);
+    switch (key) {
+
+      case '1':
+        navigate(`/dashboard`);
+        break;
+
+      case 'sub1':
+          navigate(`/blog/listing`);
+        break;
+
+      case '3':
+          navigate(`/blog/listing`);
+        break;
+
+      case 'sub2':
+          navigate(`/product/listing`);
+        break;
+
+      case '4':
+          navigate(`/product/listing`);
+        break;
+
+
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       {isMobile && collapsed && (
@@ -67,7 +104,7 @@ const CustomSider = ({ items }) => {
         trigger={null}  // Disable default trigger
       >
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu theme="dark" selectedKeys = {[selectedKey]} mode="inline" items={items} onClick={handleMenuClick}/>
 
         {/* Close button on the right edge of the Sider */}
 

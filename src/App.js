@@ -8,6 +8,11 @@ import NotFound from './pages/public/not-found';
 import CreateBlog from './pages/user/create-blog';
 import BlogListing from './pages/public/blog-listing';
 import BlogDetail from './pages/public/blog-detail';
+import CreateProduct from './pages/user/create-product';
+import ProductListing from './pages/public/product-listing';
+import ProductDetail from './pages/public/product-detail';
+import Dashboard from './pages/public/dashboard';
+import Cart from './pages/public/cart';
 import useUserStore from './store/user-store';
 
 function App() {
@@ -35,6 +40,11 @@ function AppContent() {
             <Route path="/blog/create" element={<ProtectedRoute allowedRoles={['user']} component={CreateBlog} />} />
             <Route path="/blog/listing" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={BlogListing} />} />
             <Route path="/blog/detail/:id" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={BlogDetail} />} />
+            <Route path="/product/create" element={<ProtectedRoute allowedRoles={['user']} component={CreateProduct} />} />
+            <Route path="/product/listing" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={ProductListing} />} />
+            <Route path="/product/detail/:id" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={ProductDetail} />} />
+            <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={Dashboard} />} />
+            <Route path="/cart" element={<ProtectedRoute allowedRoles={['user', 'guest']} component={Cart} />} />
           </Routes>
         </Layout>
       ) : (

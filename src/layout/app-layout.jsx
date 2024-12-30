@@ -27,11 +27,11 @@ function getItem(label, key, icon, children) {
 const items = [
 
   getItem('Dashboard', '1', <PieChartOutlined />),
-  getItem('Blog', 'sub1', <ReadOutlined  />, [
 
+  getItem('Blog', 'sub1', <ReadOutlined  />, [
     getItem('Inventory', '3', <ExperimentOutlined />),
-    
-  ]),
+    ]),
+
   getItem('Product', 'sub2', <ShoppingOutlined/>, [getItem('Inventory', '4', <ExperimentOutlined />)]),
   
 ];
@@ -82,13 +82,10 @@ const AppLayout = ({ children }) => {
             {children}
           </div>
         </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        <Footer className="custom-footer">
+          Product by Ali & Sons ©{new Date().getFullYear()}
         </Footer>
+
       </Layout>
     </Layout>
   );

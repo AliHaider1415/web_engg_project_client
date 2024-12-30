@@ -1,0 +1,198 @@
+.dashboard {
+    padding: 20px;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative; /* Ensure the pseudo-element positions correctly */
+    background-image: url('/public/images/available-jobs.jpg'); /* Correct path */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating the image */
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    margin-bottom: 40px;
+    z-index: 0; /* Place the section below the overlay */
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: -1; /* Ensure the overlay is below the content */
+  }
+  
+  
+  
+  .hero-title {
+    color: white !important;
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-description {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 40px !important;
+  }
+  
+  /* Business Intro Section */
+  .business-intro-section {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    background: #f0f2f5;
+  }
+  
+  .business-intro-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .business-intro-img img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .business-intro-text {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  @media (max-width: 768px) {
+    .business-intro-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .business-intro-img img {
+      max-width: 100%;
+    }
+  
+    .business-intro-text {
+      max-width: 100%;
+    }
+  }
+  
+  .business-intro-section p {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Product Sections */
+  .best-selling-section,
+  .new-products-section {
+    padding: 40px 20px;
+  }
+  
+  /* Product Card Styling */
+  .product-card {
+    text-align: center;
+  }
+  
+  .product-card p {
+    margin-bottom: 20px;
+  }
+  
+  /* Grid for Product Cards */
+  .best-selling-section .product-card,
+  .new-products-section .product-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  /* Responsive Grid */
+  .best-selling-section .product-card,
+  .new-products-section .product-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  
+  
+  /* Trending Articles Section */
+  .trending-articles-section {
+    padding: 40px 20px;
+    background: #f0f2f5;
+  }
+  
+  .article-card {
+    text-align: center;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, #1890ff, #1d39c4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 60px 20px;
+    color: white; /* Sets the text color to white for the entire section */
+  }
+  
+  .cta-section h2,
+  .cta-section p {
+    color: white !important; /* Ensures headings and paragraphs inherit white color */
+  }
+  .cta-section .ant-typography {
+    color: white !important; /* Ensures headings and paragraphs inherit white color */
+  }
+  
+  
+  
+
+  /* Best Selling and New Products Sections */
+.best-selling-section,
+.new-products-section {
+  padding: 40px 20px;
+}
+
+/* Product Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Wrapper for each product card */
+/* .product-card-wrapper {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+} */
+
+/* Responsive Grid */
+@media (max-width: 1782px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1459px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

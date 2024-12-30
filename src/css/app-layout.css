@@ -1,0 +1,8 @@
+.custom-footer {
+    text-align: center;
+    background-color: #00001a;
+    color: white; /* White text for contrast */
+    font-size: 18px; /* Increased font size */
+    padding: 20px 0; /* Add padding for better spacing */
+  }
+  
